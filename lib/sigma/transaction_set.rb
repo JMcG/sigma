@@ -1,22 +1,18 @@
 module Sigma
-  class TransactionSet < Api
+  class TransactionSet
     SIGMA_REQUEST_FIELDS = %w(transaction_id company_number)
+
+    def transaction_id
+      Array.new(10).map { (1 + rand(9)) }.join
+    end
     
-    attr_reader :request, :response, :yaml_fields
-    attr_accessor :transaction
-    
-    def initialize
-      if block_given?
-        @transaction = yield
-        @transaction.send_request
-      end
-      
+    def company_number
+      80
     end
     
     def yaml_fields
       return @yaml_fields if @yaml_fields
-      t_class = @transaction.class.name if @transaction
-      @yaml_fields = Sigma.load_file(Sigma.underscore(t_class || self.class.name))
+      @yaml_fields = Sigma.load_file(Sigma.underscore(self.class.name))
     end
     
     def request
@@ -24,7 +20,8 @@ module Sigma
       @request = Request.new(self)
     end
     
-    def send_request
+    def response
+      return @response if @response
       @response = Response.new(Sigma.send(request.to_s{|x| x + add_ons }), self)
     end
     
@@ -36,11 +33,5 @@ module Sigma
       ""
     end
     
-    def method_missing(name, *args)
-      super unless @transaction.respond_to? name
-      @transaction.send name, *args
-    end
-    
   end
-
 end

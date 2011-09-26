@@ -1,17 +1,15 @@
 module Sigma
   class Api
-    attr_reader :transaction_set
+    attr_accessor :transaction
 
-    def initialize(transaction_set)
-      @transaction_set = transaction_set
+    def initialize(transaction)
+      @transaction = transaction
     end
     
-    def transaction_id
-      Array.new(10).map { (1 + rand(9)) }.join
+    def method_missing(name, *args)
+      super unless @transaction.respond_to? name
+      @transaction.send name, *args
     end
     
-    def company_number
-      80
-    end
   end
 end

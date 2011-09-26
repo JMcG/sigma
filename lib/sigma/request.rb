@@ -15,10 +15,6 @@ module Sigma
       end
     end
     
-    def send
-      query_sigma(format_request)
-    end
-    
     def to_s
       return yield(fields.sort.join("|")) if block_given?
       return fields.sort.join("|")
