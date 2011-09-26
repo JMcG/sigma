@@ -14,7 +14,6 @@ module Sigma
         end
         
         def method_missing(name, *args)
-          # index = I18n.t(name, :scope => ["#{@transaction.class}", "TransactionSet", "ResponseField"] + @transaction.response_scope, :default => -1)
           index = @transaction.response_scope(name)
           index = @transaction.yaml_fields['ResponseField']["#{name}"] || -1 unless index
           return super unless index != -1
