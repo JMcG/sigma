@@ -15,7 +15,8 @@ module Sigma
     
     def yaml_fields
       return @yaml_fields if @yaml_fields
-      @yaml_fields = Sigma.load_file(Sigma.underscore(self.class.name))
+      t_class = @transaction.class.name if @transaction
+      @yaml_fields = Sigma.load_file(Sigma.underscore(t_class || self.class.name))
     end
     
     def request
