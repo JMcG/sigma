@@ -1,6 +1,6 @@
 # Sigma
   
-Ruby bindings for the sigma controller+ API.  Currently supports only product availability and zip code lookup.
+Ruby bindings for the sigma controller+ API.  Currently only suppots the "product availability" and "zip code lookup" trasaction sets.
 
 ## Usage
 
@@ -8,7 +8,7 @@ __Product Availabilty__
 
 The product lookup transaction will return an array of objects, each representing a prodcut, from sigma.  The information for each product is accessible through instance methods on each product object according to the response fields in the documentation for the product availability transaction set provided by fifth gear.
 
-    t = Sigma::TransactionSet.new { Sigma::ProductAvailability.new(:product_number => "57337", :response_type => 'D') }
+    t = Sigma::Api.new(Sigma::ProductAvailability.new(:product_number => "57337", :response_type => 'D'))
     
     t.products                        # => [product]
     t.products[0].product_number      # => 57337
@@ -16,16 +16,22 @@ The product lookup transaction will return an array of objects, each representin
     ...
     ...
     
-    t.transaction = Sigma::ProductAvailability.new(:product_number => [57337, 36774, 50093, 93939], :response_type => "M")
-    
+You can send load more information from sigma using the same Api object by simply setting the transaction explicitly. 
+
+    t.transaction = Sigma::ProductAvailability.new(:product_number => [57337, 36774, 50093, 93939], :response_type => "M")    
     t.products                        # => [product, product, product, product]
+    
+You can also change the trasaction type all together.
+
+    t.transaction = Sigma::ZipCodeLookup.new(:zip_code => "56007")
+    t.zip_codes                       # => [zip, zip, ..., ...]
     
     
 __Zip Code Lookup__
 
 The zip code lookup transaction will return an array of zip codes from sigma.  The only information available for each zip code returned is the city and state which are callable as instance methods on each zip code object returned. 
 
-    t = Sigma::TransactionSet.new { Sigma::ZipCodeLookup.new(:zip_code => "56007") }
+    t = Sigma::Api.new(Sigma::ZipCodeLookup.new(:zip_code => "56007"))
     
     t.zip_codes                       # => [zip, zip, ..., ...]
     t.zip_codes[0].city               # "ALBERT LEA"
