@@ -33,7 +33,7 @@ module Sigma
   end
   
   def self.load_file(name)
-    YAML.load(File.open("#{$:.unshift(File.dirname(__FILE__))[1]}/yaml_fields/#{name}.yml"))
+    YAML.load(File.open("yaml_files/#{name}.yml"))
   end
   
 end
