@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Sigma::VERSION
   s.authors     = ["Justin McGinnis"]
   s.email       = ["justin.mcginnis@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/Nameth/sigma"
   s.summary     = %q{Ruby bindings for the sigma micro controller+ API}
   s.description = %q{see summary}
 
