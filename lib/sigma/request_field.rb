@@ -2,9 +2,9 @@ module Sigma
   class RequestField < Request
     attr_reader :name, :value, :position
     
-    def initialize(name, transaction_set)
-      options = transaction_set.yaml_fields['RequestField']["#{name}"]
-      options[:value] = transaction_set.request_options[name.to_sym]
+    def initialize(name, transaction)
+      options = transaction.yaml_fields['RequestField']["#{name}"]
+      options[:value] = transaction.request_options[name.to_sym]
       options.each do |key, value|
         instance_variable_set("@#{key}", value)
       end
