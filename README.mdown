@@ -16,7 +16,7 @@ The product lookup transaction will return an array of objects, each representin
     ...
     ...
     
-You can send load more information from sigma using the same Api object by simply setting the transaction explicitly. 
+You can load more information from sigma using the same Api object by simply setting the transaction explicitly. 
 
     t.transaction = Sigma::ProductAvailability.new(:product_number => [57337, 36774, 50093, 93939], :response_type => "M")    
     t.products                        # => [product, product, product, product]
