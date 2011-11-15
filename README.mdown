@@ -34,6 +34,23 @@ The zip code lookup transaction will return an array of zip codes from sigma.  T
     t = Sigma::Api.new(Sigma::ZipCodeLookup.new(:zip_code => "56007"))
     
     t.zip_codes                       # => [zip, zip, ..., ...]
-    t.zip_codes[0].city               # "ALBERT LEA"
-    t.zip_codes[0].state              # "MN"
+    t.zip_codes[0].city               # => "ALBERT LEA"
+    t.zip_codes[0].state              # => "MN"
+    
+__Customer Authentication__
+
+The customer authentication lookup transaction will attempt to authenticate a customer in sigma and will return the results of the attempted authentication.  There are several feilds which are required to attempt a customer authentication request. The example below contains all of the fields that are required.
+
+    t = Sigma::Api.new(Sigma::CustomerAuthentication.new( :first_name => "Justin", 
+                                                          :last_name => "McGinnis", 
+                                                          :street_name => "Century", 
+                                                          :street_number => 8085,
+                                                          :email_address => "justin.mcginnis@gmail.com",
+                                                          :city => "Chaska" ))
+    
+    t.customer                        # => ["15A", "9244216892", "000", "9", "001234567", "1", "", "", "N", "", "<EOT>"]
+    t.customer.customer_number        # => "001234567"
+    t.customer.authentication_status  # => "9"
+    
+
     
