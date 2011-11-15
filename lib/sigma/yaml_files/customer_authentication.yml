@@ -1,0 +1,26 @@
+RequestField:
+  'transaction_code' : {name: 'transaction_code', format: '4/A', default: '15R', position: 0, required: true}
+  'transaction_id' : {name: 'transaction_id', format: '20/A', position: 1, required: true}
+  'company_number' : {name: 'company_number', format: '2/N', position: 2, required: true}
+  'first_name' : {name: 'first_name', format: '14/A', position: 4, required: true}
+  'last_name' : {name: 'last_name', format: '14/A', position: 5, required: true}
+  'street_name' : {name: 'street_name', format: '20/A', position: 7, required: true}
+  'city' : {name: 'city', format: '15/A', position: 10, required: true}
+  'email_address' : {name: 'email_address', format: '50/A', position: 13, required: true}
+  'street_number' : {name: 'street_number', format: '5/N', position: 6}
+  'company_name' : {name: 'company_name', format: '30/A', position: 3}
+  'unit_number' : {name: 'unit_number', format: '5/A', position: 8}
+  'address_2' : {name: 'address_2', format: '30/A', position: 9}
+  'state' : {name: 'state', format: '3/A', position: 11}
+  'zip_code' : {name: 'zip_code', format: '9/A', position: 12}
+  'customer_number' : {name: 'customer_number', format: '9/N', position: 14}
+ResponseField:
+  'transaction_code': '0'
+  'transaction_id': '1'
+  'response_code': '2'
+  'authentication_status': '3'
+  'customer_number': '4'
+  'match_level': '5'
+  'club_status': '6'
+  'club_id': '7'
+  'multiple_matches': '8'

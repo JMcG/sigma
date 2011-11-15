@@ -18,6 +18,7 @@ module Sigma
   require 'sigma/response'
   require 'sigma/zip_code_lookup'
   require 'sigma/product_availability'
+  require 'sigma/customer_authentication'
   
 
   # The address where the controller+ api is listening for requests
