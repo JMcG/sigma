@@ -20,6 +20,18 @@ module Sigma
   require 'sigma/product_availability'
   require 'sigma/customer_authentication'
   
+  def self.disable!
+    @@disable_sigma = true
+  end
+  
+  def self.enable!
+    @@disable_sigma = false
+  end
+  
+  def self.disabled?
+    return true if defined? @@disable_sigma && @@disable_sigma
+    return false
+  end
 
   # The address where the controller+ api is listening for requests
   HOST  = '172.16.200.140'
