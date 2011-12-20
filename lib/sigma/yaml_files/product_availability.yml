@@ -67,6 +67,9 @@ ResponseField:
     'product_allow_cod_indicator': '51'
     'stored_value_card_indicator': '52'
     'product_number': '54'
+    'product_line_code': '57'
+    'ship_charge': '78'
+    'cross_sells': '102..111'
   M:
     'response_code': '0'
     'product_number': '1'
