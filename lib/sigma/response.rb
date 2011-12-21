@@ -18,7 +18,7 @@ module Sigma
           index = @transaction.yaml_fields['ResponseField']["#{name}"] || -1 unless index
           return super unless index != -1
           return self[index.to_i] unless index.match(/\d+\.\.\d+/)
-          return self[eval(index)]
+          return self[eval(index)].delete_if{ |x| x.empty? }
         end
         
       end
