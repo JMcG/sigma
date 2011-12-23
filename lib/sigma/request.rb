@@ -3,16 +3,13 @@ module Sigma
     attr_accessor :fields
     
     def initialize(transaction)
-      @fields = []
-      transaction.request_fields.each do |field|
-        @fields << Request.define_field(field, transaction).call
+      request_class = class << self; self; end
+      request_class.instance_eval do
+        transaction.request_fields.each do |field|
+          define_method("#{field}"){ RequestField.new(field, transaction) }
+        end
       end
-    end
-    
-    def self.define_field(name, transaction)
-      define_method(name) do 
-        RequestField.new(name, transaction)
-      end
+      self.fields = singleton_methods.map{|sm| send(sm)}
     end
     
     def to_s
