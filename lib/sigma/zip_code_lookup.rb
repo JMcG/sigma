@@ -19,8 +19,7 @@ module Sigma
     end
     
     def zip_codes
-      return @zip_codes if @zip_codes
-      response.collection
+      @zip_codes ||= response.collection
     end
     
   end

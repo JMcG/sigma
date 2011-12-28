@@ -21,20 +21,17 @@ module Sigma
     #   api = Sigma::Api.new(Sigma::ZipCodeLookup.new(:zip_code => "56007"))
     #   api.yaml_fields       => {"RequestField"=>{"transaction_code"=>{"name"=>"transaction_code", "format"=>"4/A", "default"=>"1R", "position"=>0}, "transaction_id"=>{"name"=>"transaction_id", "format"=>"20/A", "position"=>1}, "company_number"=>{"name"=>"company_number", "format"=>"2/N", "position"=>2}, "zip_code"=>{"name"=>"zip_code", "format"=>"9/A", "position"=>3}}, "ResponseField"=>{"transaction_code"=>"0", "transaction_id"=>"1", "response_code"=>"2", "city"=>"3", "state"=>"4"}}
     def yaml_fields
-      return @yaml_fields if @yaml_fields
-      @yaml_fields = Sigma.load_file(Sigma.underscore(self.class.name))
+      @yaml_fields ||= Sigma.load_file(Sigma.underscore(self.class.name))
     end
     
     # This will return the Request object from memory, or it will be created if doesn't exists.
     def request
-      return @request if @request
-      @request = Request.new(self)
+      @request ||= Request.new(self)
     end
 
     # This will return the Response object from memory, or it will be created if doesn't exists.
     def response
-      return @response if @response
-      @response = Response.new(Sigma.send(request.to_s{|x| x + add_ons }), self)
+      @response ||= Response.new(Sigma.send(request.to_s{|x| x + add_ons }), self)
     end
     
     # Basically acts as an abstract method, may replace in the future.  
