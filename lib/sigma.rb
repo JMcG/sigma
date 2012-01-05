@@ -20,6 +20,7 @@ module Sigma
   require 'sigma/product_availability'
   require 'sigma/customer_authentication'
   require 'sigma/customer_activity_summary'
+  require 'sigma/customer_activity_detail'
   
   def self.disable!
     @@disable_sigma = true
@@ -46,7 +47,7 @@ module Sigma
   # Open a socket connection on the specified host and sends the request, then returns the response
   def self.send(request)
     TCPSocket.open(HOST,Sigma.port) do |s|
-      s.print request + "<EOT>"
+      s.print request + "|<EOT>"
       s.read
     end
   end
