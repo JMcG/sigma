@@ -13,8 +13,9 @@ module Sigma
     end
     
     def validate_request_options
-      raise Exception, "The value '#{@value}' is not an acceptable option for '#{name}', options => #{@options}" if @options and !@options.match(value)
       raise Exception, "The value for #{name} is required" if !@value and @required
+      return true unless @value
+      raise Exception, "The value '#{@value}' is not an acceptable option for '#{name}', options => #{@options}" if @options and !@options.match(value)
       raise Exception, "The value '#{@value}' is not an acceptable format for '#{name}', format => #{@format}" unless format_is_valid?
     end
     
