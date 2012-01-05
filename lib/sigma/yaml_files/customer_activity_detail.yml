@@ -1,0 +1,14 @@
+RequestField:
+  'transaction_code' : {name: 'transaction_code', format: '4/A', default: '11R', position: 0}
+  'transaction_id' : {name: 'transaction_id', format: '20/A', position: 1}
+  'company_number' : {name: 'company_number', format: '2/N', position: 2}
+  'customer_number' : {name: 'customer_number', format: '9/N', position: 3}
+  'customer_password' : {name: 'customer_password', format: '10/A', position: 4}
+  'activity_number_type' : {name: 'activity_number_type', format: '1/A', options: 'O|R', position: 5}
+  'activity_number' : {name: 'activity_number', format: '9/N', position: 6}
+ResponseField:
+  'transaction_code': '0'
+  'transaction_id': '1'
+  'response_code': '2'
+  'response_line_indecator' : '3'
+  'text' : '4'
