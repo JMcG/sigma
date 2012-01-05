@@ -19,6 +19,7 @@ module Sigma
   require 'sigma/zip_code_lookup'
   require 'sigma/product_availability'
   require 'sigma/customer_authentication'
+  require 'sigma/customer_activity_summary'
   
   def self.disable!
     @@disable_sigma = true

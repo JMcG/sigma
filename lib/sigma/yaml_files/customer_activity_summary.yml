@@ -1,0 +1,36 @@
+RequestField:
+  'transaction_code' : {name: 'transaction_code', format: '4/A', default: '10R', position: 0}
+  'transaction_id' : {name: 'transaction_id', format: '20/A', position: 1}
+  'company_number' : {name: 'company_number', format: '2/N', position: 2}
+  'customer_number' : {name: 'customer_number', format: '9/N', position: 3}
+  'customer_password' : {name: 'customer_password', format: '10/A', position: 4}
+  'activity_number_type' : {name: 'activity_number_type', format: '1/A', options: 'O|I|R', position: 5}
+  'activity_number' : {name: 'activity_number', format: '9/N', position: 6}
+  'return_data_types' : {name: 'return_data_types', format: '1/A', options: 'R|O|B', default: 'B', position: 7}
+  'max_returned' : {name: 'max_returned', format: '3/N', position: 8}
+ResponseField:
+  'transaction_code': '0'
+  'transaction_id': '1'
+  'response_code': '2'
+  'response_sequence_code' : '3'
+  'customer_number' : '4'
+  'customer_password' : '5'
+  'customer_name' : '6'
+  'shipping_address_1' : '7'
+  'shipping_address_2' : '8'
+  'shipping_city' : '9'
+  'shipping_state' : '10'
+  'shipping_zip' : '11'
+  'shipping_country' : '12'
+  'phone_number_1' : '13'
+  'phone_number_2' : '14'
+  'email_address' : '15'
+  'fax_number' : '16'
+  'activity_type' : '4'
+  'activity_number' : '5'
+  'activity_entry_date' : '6'
+  'current_status' : '7'
+  'po_number' : '8'
+  'product_number' : '9'
+  'description' : '10' 
+  'secondary_current_status' : '11'
