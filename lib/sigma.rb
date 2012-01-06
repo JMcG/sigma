@@ -21,6 +21,7 @@ module Sigma
   require 'sigma/customer_authentication'
   require 'sigma/customer_activity_summary'
   require 'sigma/customer_activity_detail'
+  require 'sigma/catalog_request'
   
   def self.disable!
     @@disable_sigma = true

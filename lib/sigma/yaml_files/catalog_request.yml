@@ -1,0 +1,28 @@
+RequestField:
+  'transaction_code' : {name: 'transaction_code', format: '4/A', default: '3R', position: 0}
+  'transaction_id' : {name: 'transaction_id', format: '20/A', position: 1}
+  'company_number' : {name: 'company_number', format: '2/N', position: 4}
+  'tpol_transaction_code' : {name: 'tpol_transaction_code', format: '1/A', position: 3, default: 'C'} 
+  'control_block' : {name: 'control_block', format: '20/A', position: 2} 
+  'customer_number' : {name: 'customer_number', format: '9/N', position: 5} 
+  'order_number' : {name: 'order_number', format: '11/N', position: 6} 
+  'company_name' : {name: 'company_name', format: '30/A', position: 7} 
+  'billing_first_name' : {name: 'billing_first_name', format: '28/A', position: 8, required: true} 
+  'billing_last_name' : {name: 'billing_last_name', format: '28/A', position: 9, required: true} 
+  'billing_street_number' : {name: 'billing_street_number', format: '30/A', position: 10, required: true} 
+  'billing_street_name' : {name: 'billing_street_name', format: '30/A', position: 11, required: true} 
+  'billing_unit_number' : {name: 'billing_unit_number', format: '30/A', position: 12} 
+  'billing_address_additional' : {name: 'billing_address_additional', format: '30/A', position: 13} 
+  'billing_city' : {name: 'billing_city', format: '25/A', position: 14, required: true} 
+  'billing_state' : {name: 'billing_state', format: '3/A', position: 15, required: true} 
+  'billing_zip' : {name: 'billing_zip', format: '9/A', position: 16, required: true} 
+  'country_desc' : {name: 'country_desc', format: '20/A', position: 17}
+  'email_address' : {name: 'email_address', format: '50/A', position: 18} 
+  'order_type' : {name: 'order_type', format: '1/A', position: 19, default: "I"} 
+  'source_code' : {name: 'source_code', format: '8/A', position: 20, default: "WW22INET", required: true}
+ResponseField:
+  'transaction_code': '0'
+  'transaction_id': '1'
+  'response_code': '2'
+  'assigned_customer_number': '3'
+  'error_message': '3'
