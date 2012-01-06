@@ -4,8 +4,13 @@ module Sigma
   # for certain Api's when testing or debugging.
   #  
   class TransactionSet
-    # Every request sent to sigma will have a transaction_id and a company number, to avoid duplication when creating new Api's these are defined here.
-    SIGMA_REQUEST_FIELDS = %w(transaction_id company_number)
+    attr_reader :request_fields, :request_options
+    
+    def initialize(options={})
+      @request_fields = yaml_fields["RequestField"].keys
+      @request_options = {:transaction_id => transaction_id, 
+                          :company_number => company_number}.merge(options)      
+    end
     
     # This will return a random number 10 digits in length
     def transaction_id
