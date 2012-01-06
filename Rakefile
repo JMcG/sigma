@@ -31,15 +31,6 @@ task :create_api, :api_name do |t, args|
     f.write \
     "module Sigma\n" \
     "  class #{camelize(api_name)} < TransactionSet\n" \
-    "    attr_reader :request_fields, :request_options\n" \
-    "    SIGMA_REQUEST_FIELDS = %w()\n" \
-    "\n" \
-    "    def initialize(options={})\n" \
-    "      @request_fields = SIGMA_REQUEST_FIELDS + TransactionSet::SIGMA_REQUEST_FIELDS\n" \
-    "\n" \
-    "      @request_options = {:transaction_id => transaction_id, \n" \
-    "                          \:company_number => company_number}.merge(options)\n" \
-    "    end\n" \
     "\n" \
     "    def parse_response(raw_response)\n" \
     "      \#i.e. [raw_response.split('|')]\n\n" \
@@ -52,7 +43,7 @@ task :create_api, :api_name do |t, args|
   File.open("lib/sigma/yaml_files/#{api_name}.yml", 'w') do |f|
     f.write \
     "RequestField:\n" \
-    "  'transaction_code' : {name: 'transaction_code', format: '4/A', default: '1R', position: 0}\n" \
+    "  'transaction_code' : {name: 'transaction_code', format: '4/A', default: '', position: 0}\n" \
     "  'transaction_id' : {name: 'transaction_id', format: '20/A', position: 1}\n" \
     "  'company_number' : {name: 'company_number', format: '2/N', position: 2}\n" \
     "ResponseField:\n" \
