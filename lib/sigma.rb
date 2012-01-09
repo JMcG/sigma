@@ -22,6 +22,7 @@ module Sigma
   require 'sigma/customer_activity_summary'
   require 'sigma/customer_activity_detail'
   require 'sigma/catalog_request'
+  require 'sigma/customer_order'
   
   def self.disable!
     @@disable_sigma = true

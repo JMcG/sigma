@@ -1,0 +1,101 @@
+RequestField:
+  'transaction_code' : {name: 'transaction_code', format: '4/A', default: '7R', position: 0}
+  'transaction_id' : {name: 'transaction_id', format: '20/A', position: 1}
+  'company_number' : {name: 'company_number', format: '2/N', position: 4}
+  'tpol_transaction_code' : {name: 'tpol_transaction_code', format: '1/A', position: 3, default: 'O'} 
+  'control_block' : {name: 'control_block', format: '20/A', position: 2} 
+  'customer_number' : {name: 'customer_number', format: '9/N', position: 5} 
+  'order_number' : {name: 'order_number', format: '11/N', position: 6} 
+  'company_name' : {name: 'company_name', format: '30/A', position: 7} 
+  'billing_first_name' : {name: 'billing_first_name', format: '28/A', position: 8, required: true} 
+  'billing_last_name' : {name: 'billing_last_name', format: '28/A', position: 9, required: true} 
+  'billing_street_number' : {name: 'billing_street_number', format: '30/A', position: 10, required: true} 
+  'billing_street_name' : {name: 'billing_street_name', format: '30/A', position: 11, required: true} 
+  'billing_unit_number' : {name: 'billing_unit_number', format: '30/A', position: 12} 
+  'billing_address_additional' : {name: 'billing_address_additional', format: '30/A', position: 13} 
+  'billing_city' : {name: 'billing_city', format: '25/A', position: 14, required: true} 
+  'billing_state' : {name: 'billing_state', format: '3/A', position: 15, required: true} 
+  'billing_zip' : {name: 'billing_zip', format: '9/A', position: 16, required: true} 
+  'country_desc' : {name: 'country_desc', format: '20/A', position: 17}
+  'email_address' : {name: 'email_address', format: '50/A', position: 18} 
+  'order_type' : {name: 'order_type', format: '1/A', position: 19, default: "I"} 
+  'source_code' : {name: 'source_code', format: '8/A', position: 20, default: "WW22INET", required: true}
+  'rush_indicator' : {name: 'rush_indicator', format: '8/A', position: 21}
+  'gift_order_indicator' : {name: 'gift_order_indicator', format: '1/A', position: 22}
+  'shipping_company_name' : {name: 'ship_company_name', format: '30/A', position: 23}
+  'shipping_first_name' : {name: 'shipping_first_name', format: '28/A', position: 24}
+  'shipping_last_name' : {name: 'shipping_last_name', format: '28/A', position: 25}
+  'shipping_street_number' : {name: 'shipping_street_number', format: '30/A', position: 26}
+  'shipping_street_name' : {name: 'shipping_street_name', format: '30/A', position: 27}
+  'shipping_unit_number' : {name: 'shipping_unit_number', format: '30/A', position: 28}
+  'shipping_address_additional' : {name: 'shipping_address_additional', format: '30/A', position: 29}
+  'shipping_city' : {name: 'shipping_city', format: '25/A', position: 30}
+  'shipping_state' : {name: 'shipping_state', format: '3/A', position: 31}
+  'shipping_zip' : {name: 'shipping_zip', format: '9/A', position: 32}
+  'shipping_country_desc' : {name: 'shipping_country_desc', format: '20/A', position: 33}
+  'shipping_code' : {name: 'shipping_code', format: '1/A', position: 34}
+  'divisiion' : {name: 'divisiion', format: '1/A', position: 35}
+  'order_class' : {name: 'order_class', format: '1/A', position: 36}
+  'ship_charge_type' : {name: 'ship_charge_type', format: '1/A', position: 37, options: "S|W|I|N|F|A|P"}
+  'payment_method' : {name: 'payment_method', format: '1/A', position: 38}
+  'prepaid_amount' : {name: 'prepaid_amount', format: '11/N', position: 39}
+  'card_number' : {name: 'charge_card_number', format: '20/A', position: 40}
+  'card_expiration' : {name: 'card_expiration', format: '4/N', position: 41}
+  'po_number' : {name: 'po_number', format: '20/A', position: 42}
+  'date_ordered' : {name: 'date_ordered', format: '6/N', position: 43}
+  'phone_number' : {name: 'phone_number', format: '16/A', position: 44}
+  'phone_number_2' : {name: 'phone_number_2', format: '16/A', position: 45}
+  'net_amount' : {name: 'net_amount', format: '11/N', position: 46}
+  'tax_amount' : {name: 'tax_amount', format: '11/N', position: 47}
+  'ship_charge' : {name: 'ship_charge', format: '11/N', position: 48}
+  'total_amount' : {name: 'total_amount', format: '11/N', position: 49}
+  'card_predeposit_amount' : {name: 'card_predeposit_amount', format: '11/N', position: 50}
+  'shipping_information' : {name: 'shipping_information', format: '15/A', position: 51}
+  'warehouse_message_line_1' : {name: 'warehouse_message_line_1', format: '30/A', position: 52}
+  'warehouse_message_line_2' : {name: 'warehouse_message_line_2', format: '30/A', position: 53}  
+  'invoice_message_line_1' : {name: 'invoice_message_line_1', format: '50/A', position: 54}
+  'invoice_message_line_2' : {name: 'invoice_message_line_2', format: '50/A', position: 55}
+  'hold_until_date' : {name: 'hold_until_date', format: '8/N', position: 56}
+  'hold_reason' : {name: 'hold_reason', format: '8/A', position: 57}
+  'ship_by_date' : {name: 'ship_by_date', format: '8/N', position: 58}
+  'email_confirmation_flag' : {name: 'email_confirmation_flag', format: '1/A', position: 59}
+  'not_used' : {name: 'not_used', format: '1/A', position: 60}
+  'ship_to_delivery_type' : {name: 'ship_to_delivery_type', format: '1/A', position: 61, options: "C|R"}
+  'sales_person' : {name: 'sales_person', format: '4/N', position: 62}
+  'charge_authorization_information' : {name: 'charge_authorization_information', format: '100/A', position: 63}
+  'fax_number' : {name: 'fax_number', format: '16/A', position: 64}
+  'ecp_check_number' : {name: 'ecp_check_number', format: '7/N', position: 65}
+  'custom_header_reserved' : {name: 'custom_header_reserved', format: '1/A', position: 66}
+  'cvv_number' : {name: 'cvv_number', format: '4/A', position: 67}
+  'cvv_presence_flag' : {name: 'cvv_presence_flag', format: '1/A', position: 68, options: "1|2|9"}
+  'web_order_number' : {name: 'web_order_number', format: '50/A', position: 88}
+ResponseField:
+  'transaction_code': '0'
+  'transaction_id': '1'
+  'response_code': '2'
+  'error_message': '3'
+  'error_line': '4'
+  'shipping_method': '5'
+  'shipping_charge': '6'
+  'tax_charge': '7'
+  'customer_number': '8'
+  'order_number': '9'
+  'special_of_the_day_flag': '10'
+  'free_items_flag': '11'
+  'order_net_amount': '12'
+  'order_discount_amount': '13'
+  'applied_coupon_amount': '14'
+  'applied_gift_certificate_amount': '15'
+  'charge_card_auth_info': '16'
+  'club_savings': '17'
+  'club_points_earned': '18'
+  'reserved_field_1': '19'
+  'applied_stored_value_card_amount': '20'
+  'alt_shipping_method': '0'
+  'alt_shipping_method_description': '1'
+  'alt_shipping_charge': '2'
+  'alt_tax_charge': '3'
+  'product_number': '0'
+  'product_price': '1'
+  'expected_date': '2'
+  'line_item_service_charge': '3'
