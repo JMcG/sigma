@@ -1,6 +1,6 @@
 module Sigma
   class Request
-    attr_accessor :fields
+    attr_reader :fields
     
     def initialize(transaction)
       request_class = class << self; self; end
@@ -9,12 +9,13 @@ module Sigma
           define_method("#{field}"){ RequestField.new(field, transaction) }
         end
       end
-      self.fields = singleton_methods.map{|sm| send(sm)}
+      @fields = []
+      singleton_methods.map{|sm| send(sm)}.each {|f| @fields[f.position] = f }
     end
     
     def to_s
-      return yield(fields.sort.join("|")) if block_given?
-      return fields.sort.join("|")
+      return yield(fields.join("|")) if block_given?
+      return fields.join("|")
     end
     
   end
